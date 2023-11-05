@@ -1,10 +1,14 @@
 package com.inflearn.jpashop.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -37,5 +41,7 @@ public class Item {
 //	나중에 데이터베이스 통계를 내거나 리포팅 할 때는 중요할 수 있는데 계산될 때는 주문서를 보고 아이템들을 찾지 아이템을 보고 어떤 주문서들에서 주문이 됬나를 찾을 일은 거의 없다. 
 //	@OneToMany(mappedBy = "item")
 //	private List<OrderItem> orderItems = new ArrayList<>();
-
+	
+	@ManyToMany(mappedBy = "items") // ManyToMany를 양방향으로 만든 것이다.
+	private List<Category> categories = new ArrayList<>();
 }
