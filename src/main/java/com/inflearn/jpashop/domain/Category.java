@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,12 +31,12 @@ public class Category extends BaseEntity {
 	@Getter
 	@Setter
 	private String name;
-	
-	@ManyToOne
+
+	@ManyToOne(fetch = FetchType.LAZY) // 모든 연관관계를 지연 로딩으로 하도록 한다. @ManyToOne, @OneToOne은 기본이 즉시 로딩이므로 지연 로딩으로 변경한다.
 	@JoinColumn(name = "parent_id")
 	private Category parent; // 상위 카테고리. 셀프로 매핑한 것이다.
 	
-	@OneToMany(mappedBy = "parent")
+	@OneToMany(mappedBy = "parent") // @OneToMany는 기본 타입이 Lazy(지연 로딩)이다.
 	private List<Category> child = new ArrayList<>(); // 카테고리가 쭉 내려가는 것을 셀프로 만든 것이다.
 	
 	// 테이블의 N:M 관계는 중간 테이블을 이용해서 1:N, N:1로 풀도록 한다. 실전에서는 중간테이블이 단순하지 않다.
