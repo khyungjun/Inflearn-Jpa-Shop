@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
 	@Getter
 	@Setter

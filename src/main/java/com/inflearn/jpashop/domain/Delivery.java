@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class Delivery {
+public class Delivery extends BaseEntity {
 
 	@Getter
 	@Setter

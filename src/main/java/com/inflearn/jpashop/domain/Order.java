@@ -22,7 +22,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "ORDERS") // order가 예약어(ex. order by)로 걸려있는 DB가 있기 때문에 보통 ORDERS로 많이 사용한다. 
-public class Order {
+public class Order extends BaseEntity {
 
 	@Getter
 	@Setter
