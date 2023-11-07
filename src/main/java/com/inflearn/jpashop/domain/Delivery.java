@@ -1,6 +1,7 @@
 package com.inflearn.jpashop.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,14 +22,23 @@ public class Delivery extends BaseEntity {
 	@Column(name = "delivery_id")
 	private Long id;
 
-	@Getter
-	@Setter
-	private String street;
+//	@Getter
+//	@Setter
+//	private String city;
+//	
+//	@Getter
+//	@Setter
+//	private String street;
+//
+//	@Getter
+//	@Setter
+//	private String zipcode;
 
 	@Getter
 	@Setter
-	private String zipcode;
-
+	@Embedded
+	private Address address;
+	
 	@Getter
 	@Setter
 	private DeliveryStatus status;
